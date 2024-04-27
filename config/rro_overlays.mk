@@ -44,18 +44,18 @@ PRODUCT_PACKAGES += \
     TelecomOverlay \
     TelephonyProviderOverlay
 
-ifeq ($(TARGET_IS_PIXEL), true)
+ifneq ($(filter google, $(PRODUCT_BRAND)),)
 PRODUCT_PACKAGES += \
     ManagedProvisioningPixelOverlay \
     PixelBatteryHealthOverlay
 endif
 
-ifeq ($(TARGET_IS_PIXEL_7), true)
+ifneq ($(filter bluejay panther cheetah lynx felix tangorpro shiba husky, $(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     PixelConnectivityOverlay2022
 endif
 
-ifeq ($(TARGET_PIXEL_STAND_SUPPORTED), true)
+ifneq ($(filter flame coral redfin oriole raven panther cheetah lynx felix shiba husky, $(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     DreamlinerOverlay
 endif
